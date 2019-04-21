@@ -1,0 +1,9 @@
+.gradle/
+.idea/
+out/
+*.iml
+*_debug.kt
+build/
+gradle/
+gradlew*
+src/main/resources/
