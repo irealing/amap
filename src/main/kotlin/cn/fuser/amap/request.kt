@@ -36,7 +36,7 @@ abstract class AMapRequest {
 }
 
 @HttpRequest(url = "https://restapi.amap.com/v3/ip?parameters")
-class IPLocation(address: String) : AMapRequest() {
+class IPLocationRequest(address: String) : AMapRequest() {
     @HttpParam(name = "ip")
     val ip: String = address
     @HttpParam(name = "output")
