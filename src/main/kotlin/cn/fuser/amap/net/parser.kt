@@ -92,3 +92,7 @@ class TextResponseParser : ResponseParser<String?> {
         return String(ret)
     }
 }
+
+class SimpleResponseParser<T>(private val func: (ByteArray?) -> T) : ResponseParser<T> {
+    override fun parse(resp: Response): T = func.invoke(resp.body()?.bytes())
+}
