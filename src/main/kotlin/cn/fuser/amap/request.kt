@@ -12,6 +12,21 @@ fun StringJoiner.addAll(list: Collection<String>): StringJoiner {
     return this
 }
 
+enum class SortRule(private val rule: String) {
+    DISTANCE("distance"), WEIGHT("weight");
+
+    override fun toString(): String {
+        return rule
+    }
+}
+
+enum class OutputType(private val value: String) {
+    JSON("json"), XML("xml");
+
+    override fun toString(): String {
+        return value
+    }
+}
 
 abstract class AMapRequest {
     @HttpParam(name = "key")
@@ -72,5 +87,11 @@ class AroundSearch(lon: Float, lat: Float, kw: String, city: String?, radius: In
     @HttpParam(name = "city")
     val city: String = city ?: ""
     @HttpParam(name = "radius")
-    val radius: Int = radius
+    var radius: Int = radius
+    @HttpParam(name = "sortrule")
+    var sortRule: SortRule = SortRule.DISTANCE
+    @HttpParam(name = "page")
+    var page: Int = 1
+    @HttpParam(name = "offset")
+    var offset: Int = 20
 }
