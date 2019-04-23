@@ -95,3 +95,10 @@ class AroundSearch(lon: Float, lat: Float, kw: String, city: String?, radius: In
     @HttpParam(name = "offset")
     var offset: Int = 20
 }
+
+class PlaceDetail(id: String) : AMapRequest() {
+    @HttpParam(name = "id")
+    val id: String = id
+    @HttpParam(name = "output")
+    val output: OutputType = OutputType.JSON
+}
